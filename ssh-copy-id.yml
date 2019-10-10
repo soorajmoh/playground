@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+# Ensure the public key of the user is already stored in the path mentioned in 'key' parameter with filename in given format
+    - name: Copy SSH Public Key to remote host
+      authorized_key: 
+        user: '{{ uname }}'
+        state: present
+        key: "{{ lookup('file', '/var/tmp/' + uname + '.pubkey') }}"
