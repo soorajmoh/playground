@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Create a new user and set password
+      user:
+        name: "{{ uname }}"
+        password: "{{ uname | password_hash('sha512') }}"
+        groups: sudo
+        append: yes
+        shell: /bin/bash
+        update_password: on_create
