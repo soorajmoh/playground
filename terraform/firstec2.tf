@@ -8,5 +8,5 @@ resource "aws_instance" "ub1804-tf1" {
   ami = "ami-04b9e92b5572fa0d1"
   instance_type = "t2.micro"
   key_name = "docker-testserver-1"
-  security_groups =[ "All-Traffic-open"]
+  security_groups =["All-Traffic-open"]
 }
