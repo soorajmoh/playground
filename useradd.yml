@@ -1,6 +1,7 @@
 ---
 - hosts: all
   become: yes
+# This task is to create a new user and password 
   tasks:
     - name: Create a new user and set password
       user:
